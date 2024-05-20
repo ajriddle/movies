@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Andrew's Movies</title>
+    <style>
+        body {
+            background-image: url('https://wallpaperaccess.com/full/2000046.jpg');
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="font-size:50;font-family:Helvetica">Andrew's Movies</h1>
+
+    {% with messages = get_flashed_messages() %}
+     {% if messages %}
+       {% for message in messages %}
+        <h3>{{message}}</h3>
+       {% endfor %}
+     {% endif %}
+    {% endwith %}
+    
+    {% from "_formhelpers.html" import render_field %}
+    <form method=post>
+        <dl>
+            {{ render_field(form.field) }}
+            <p>
+            {{ render_field(form.search) }}
+        </dl>
+        <p><input type=submit value=search>
+    </form>
+    
+    {% for movie in movies %}
+        <a href="/movies/{{movie.id}}" title="{{movie.plot_summary}}"><img src="{{movie.poster}}" width="210"></a>
+    {% endfor %}
+</body>
+</html>

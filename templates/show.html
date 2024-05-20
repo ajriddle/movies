@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{movie.title}}</title>
+    <style>
+        body {
+            background-image: url('https://wallpaperaccess.com/full/2000046.jpg');
+        }
+    </style>
+</head>
+<body>  
+    <div>
+    <div style="display:inline-block;width:40%;horizontal-align:left;margin-right:2%;">
+        <font size="+1">
+        <h1>{{movie.title}}</h1>
+        <p><b>Disc:</b> {{movie.disc}}</p>
+        <p><b>Digital:</b> {{movie.digital}}</p>
+        <p><b>IMDB ID:</b> <a href="https://www.imdb.com/title/{{movie.id}}">{{movie.id}}</a></p>
+        <p><b>Actors:</b> {{movie.actors}}</p>
+        <p><b>Genres:</b> {{movie.genres}}</p>
+        <p><b>Rating:</b> {{movie.rating}}/10</p>
+        <p><b>Content Rating:</b> {{movie.content_rating}}</p>
+        <p><b>Release Year:</b> {{movie.year}}</p>
+        <p><b>Duration:</b> {{movie.duration_str}}</p>
+        <p><b>Plot Summary:</b> {{movie.plot_summary}}</p>
+        </font>
+    </div>    
+    <div style="display:inline-block;horizontal-align:right;width:50%;">
+         <iframe width="700" height="440" allow="fullscreen"
+        src="{{movie.trailer}}?rel=0&amp;autoplay=1&mute=1">
+        </iframe> 
+    </div>
+    </div>
+
+    <a href="/movies" style="font-size: 30px; text-align: center; display: block;">Home</a>
+</body>
+</html>
